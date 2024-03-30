@@ -6,14 +6,14 @@ import { IoMdHeart } from "react-icons/io";
 import { MdLockOutline, MdOutlineSettings, MdInfoOutline, MdGroup, MdOutlineCameraAlt, MdOutlineGroupAdd } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 
-interface SettingsProps {
-  text: string;
+interface CategoryProps {
+  category: string;
 }
 
 export default function Profile() {
   
   return (
-    <main className="w-full sm:w-6/12 lg:w-4/12 xl:w-4/12 space-y-3 rounded-3xl bg-white z-10">
+    <main className="w-full space-y-3 rounded-3xl bg-white z-10">
       
       <div className="overflow-y-scroll" style={{paddingBottom: "56px"}}>
         <div className="fixed top-0 bg-white h-16 w-full bg-center object-cover z-1 shadow-lg flex items-center" >
@@ -56,69 +56,42 @@ export default function Profile() {
               </div>
             </div> */}
             {/* <img className="rounded-full w-8 h-8 mr-2" src="https://mir-s3-cdn-cf.behance.net/projects/404/c55b2e157888353.Y3JvcCw5OTksNzgyLDAsMTA4.png" /> */}
-            <h4 className="text-sm font-normal leading-tight truncate">My Account
+            <h4 className="text-sm font-normal leading-tight truncate">Shop by Category
             </h4>
           </div>
 
         </div>
         
-        <div style={{marginTop: "4rem"}}>
-          {/* <Setting text="" />
-          <Setting text="Interests" />
-          <Setting text="Squad" />
-          <Setting text="My Info" />
-          <Setting text="Privacy" />
-          <Setting text="Settings" />
-          <Setting text="Interests" />
-          <Setting text="Squad" /> */}
-          <Setting text="Invite Friends" />
-          <Setting text="Customer Care" />
-          <Setting text="Track Your Order" />
-          <Setting text="Terms & Conditions" />
-          <Setting text="Promotions Terms & Conditions" />
-          <Setting text="Returns & Refunds Policy" />
-          <Setting text="Privacy Policy" />
-          <Setting text="Payments" />
-        </div>
+        {/* <div style={{marginTop: "4rem"}}></div> */}
     
       </div>
       
-      <div className="grid grid-cols-3 gap-8 bg-sky-50 p-6 px-6">
-        <div className="">
-            <img src="https://placehold.co/50x50" alt="Just a flower" className="w-full h-full rounded-full" />
-        </div>
-        <div className="col-span-2">
-          <div className="flex flex-col justify-center content-center">
-            <div className="border-0 p-6 bg-black w-full">
-              Login / Signup
-            </div>
-          </div>
+      
+      <div className="px-6">
+        <div className="grid grid-cols-2 gap-4 overflow-y-scroll w-full">
+          <Category category="Men" />
+          <Category category="Women" />
+          <Category category="Kids" />
+          <Category category="Men" />
+          <Category category="Women" />
+          <Category category="Kids" />
         </div>
       </div>
-      
+
       <MobileFooter />
     </main>
   );
 }
 
-function Setting({text}: SettingsProps) {
+function Category({category}: CategoryProps) {
   return (
-    <div className=" p-3 space-y-4 hover:bg-stone-200">
-      <div className="grid grid-cols-1">
-
-          <div className="flex p-2">
-            <div className="flex flex-col justify-center w-full px-2 py-1">
-              <div className="flex justify-between items-center ">
-                <div className="flex items-center">
-                  <h2 className="text-m font-light">{text}</h2>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500 hover:text-blue-400 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
+    <div className="relative flex flex-col justify-between bg-white shadow-md rounded-3xl  bg-cover text-gray-800  overflow-hidden cursor-pointer w-full object-cover object-center rounded-lg shadow-md my-2" style={{backgroundImage: "url('https://placehold.co/100x125')"}}>
+      {/* <div className="absolute bg-gradient-to-t from-green-400 to-blue-400  opacity-50 inset-0 z-0"></div> */}
+      <div className="relative flex flex-row items-end h-24 w-full ">
+        <div className="p-6 rounded-lg  flex flex-col w-full z-1 ">
+          <h4 className="mt-1 text-gray-600 text-sm font-semibold leading-tight truncate">{category}
+          </h4>
+        </div>
       </div>
     </div>
   )
